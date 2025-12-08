@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firma de Abogados & Asociados - Asignación de Citas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Firma Legal Integral & Asociados</h1>
+            <nav>
+                <ul>
+                    <li><a href="#services">Nuestros Servicios</a></li>
+                    <li><a href="#booking">Agendar Cita</a></li>
+                    <li><a href="#dashboard">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2>Asesoría Legal y de Investigación a su Alcance</h2>
+                <p>Agende una cita con nuestros expertos de forma rápida y segura.</p>
+                <a href="#booking" class="btn btn-primary">Agendar Cita Ahora</a>
+            </div>
+        </section>
+
+        <section id="services" class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="Icono Abogado">
+                    <h3>Abogados</h3>
+                    <p>Asesoría y representación legal en diversas áreas del derecho: civil, penal, familiar y corporativo.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="Icono Detective">
+                    <h3>Detectives</h3>
+                    <p>Investigación privada profesional para casos personales o empresariales con total discreción y eficacia.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="Icono Poligrafista">
+                    <h3>Poligrafistas</h3>
+                    <p>Servicios de poligrafía (detector de mentiras) certificados para procesos de selección y casos específicos.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://via.placeholder.com/80" alt="Icono Academia">
+                    <h3>Academia</h3>
+                    <p>Cursos y capacitaciones en áreas de derecho, criminalística e investigación para profesionales y estudiantes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking">
+            <div class="container">
+                <h2>Formulario de Asignación de Cita</h2>
+                <p>Complete los siguientes campos para solicitar su cita. Le contactaremos a la brevedad para confirmar.</p>
+                <form id="appointment-form">
+                    <div class="form-group">
+                        <label for="fullName">Nombre Completo:</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono de Contacto:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceType">Servicio de Interés:</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="" disabled selected>-- Seleccione un servicio --</option>
+                            <option value="Abogado">Abogado</option>
+                            <option value="Detective">Detectives</option>
+                            <option value="Poligrafista">Poligrafistas</option>
+                            <option value="Academia">Academia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointmentDate">Fecha Deseada:</label>
+                        <input type="date" id="appointmentDate" name="appointmentDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje Adicional (Opcional):</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Solicitud de Cita</button>
+                </form>
+                <div id="form-feedback" class="hidden"></div>
+            </div>
+        </section>
+
+        <section id="dashboard" class="container">
+            <h2>Panel de Administración (Dashboard)</h2>
+            <p>Esta sección es para el personal autorizado. Desde aquí se administran las citas, servicios y profesionales disponibles.</p>
+            <a href="#" class="btn btn-secondary">Ingresar al Dashboard</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Firma Legal Integral & Asociados. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
