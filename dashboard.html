@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración - Firma Legal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Citas 📋</h1>
+
+        <div class="table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Email</th>
+                        <th>Servicio</th>
+                        <th>Fecha</th>
+                        <th>Teléfono</th>
+                        <th>Mensaje</th> 
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-citas">
+                    </tbody>
+            </table>
+        </div>
+
+        <button id="btn-logout" class="btn btn-danger" style="margin-top: 20px;">
+            Cerrar Sesión 🚪
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

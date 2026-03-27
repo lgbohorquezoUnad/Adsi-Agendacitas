@@ -1,63 +1,92 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Handle form submission
-    const form = document.getElementById('appointment-form');
-    const feedbackDiv = document.getElementById('form-feedback');
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById("appointmentDate").setAttribute('min', today);
-
-    form.addEventListener('submit', function(event) {
-        // Prevent the default form submission
-        event.preventDefault(); 
-
-        // Get form values
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const service = document.getElementById('serviceType').value;
-        const date = document.getElementById('appointmentDate').value;
-
-        // Simple validation
-        if (!fullName || !email || !phone || !service || !date) {
-            showFeedback('Por favor, complete todos los campos requeridos.', 'error');
-            return;
+    // 1. Guardia de Seguridad 💂‍♂️ (Solo para el Dashboard)
+    const tableBody = document.getElementById('lista-citas');
+    if (tableBody) { 
+        if (sessionStorage.getItem('adminLogueado') !== 'true') {
+            alert("Acceso denegado. Por favor, inicia sesión.");
+            window.location.href = "login.html";
+            return; 
         }
-        
-        // --- Simulation of sending data to a server ---
-        // In a real application, you would send this data to your backend here.
-        // For example, using the fetch() API.
-        
-        console.log('Form data submitted:');
-        console.log({ fullName, email, phone, service, date });
-
-        // Show a success message
-        showFeedback(`¡Gracias, ${fullName}! Hemos recibido su solicitud para el servicio de '${service}' en la fecha ${date}. Nos pondremos en contacto pronto para confirmar.`, 'success');
-        
-        // Reset the form after submission
-        form.reset();
-    });
-    
-    // Helper function to show feedback messages
-    function showFeedback(message, type) {
-        feedbackDiv.className = ''; // Reset classes
-        feedbackDiv.classList.add(type); // 'success' or 'error'
-        feedbackDiv.textContent = message;
-        feedbackDiv.classList.remove('hidden');
-
-        // Hide the message after 5 seconds
-        setTimeout(() => {
-            feedbackDiv.classList.add('hidden');
-        }, 5000);
     }
+
+    // 2. Lógica del Formulario (index.html) 📝 - ¡ESTO ES LO QUE FALTABA!
+    const appointmentForm = document.getElementById('appointment-form');
+    if (appointmentForm) {
+        const feedbackDiv = document.getElementById('form-feedback');
+        
+        appointmentForm.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            // Capturamos los datos del formulario
+            const appointmentData = {
+                fullName: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                service: document.getElementById('serviceType').value,
+                date: document.getElementById('appointmentDate').value,
+                message: document.getElementById('message').value.trim()
+            };
+
+            // Guardamos en localStorage
+            const appointments = JSON.parse(localStorage.getItem('citas')) || [];
+            appointments.push(appointmentData);
+            localStorage.setItem('citas', JSON.stringify(appointments));
+
+            // Feedback visual
+            if (feedbackDiv) {
+                feedbackDiv.textContent = `¡Gracias, ${appointmentData.fullName}! Cita registrada con éxito.`;
+                feedbackDiv.classList.remove('hidden');
+                feedbackDiv.style.color = "green";
+                setTimeout(() => feedbackDiv.classList.add('hidden'), 5000);
+            }
+            
+            appointmentForm.reset();
+        });
+    }
+
+    // 3. Lógica de la Tabla (dashboard.html) 📊
+    function renderAppointments() {
+        const tableBody = document.getElementById('lista-citas');
+        if (!tableBody) return; 
+
+        const appointments = JSON.parse(localStorage.getItem('citas')) || [];
+        tableBody.innerHTML = '';
+
+        appointments.forEach(function(appointment, index) {
+            const row = document.createElement('tr');
+            // Añadimos la celda de "message" para que coincida con tu HTML
+            row.innerHTML = `
+                <td><strong>${appointment.fullName}</strong></td>
+                <td>${appointment.email}</td>
+                <td>${appointment.service}</td>
+                <td>${appointment.date}</td>
+                <td>${appointment.phone}</td>
+                <td>${appointment.message || 'Sin mensaje'}</td>
+                <td><button class="btn btn-danger btn-sm" onclick="deleteAppointment(${index})">Eliminar</button></td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    renderAppointments();
+
+    // 4. Cerrar Sesión 🚪
+    const logoutBtn = document.getElementById('btn-logout');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            sessionStorage.removeItem('adminLogueado');
+            window.location.href = "index.html";
+        });
+    }
+
+    // 5. Función global para eliminar 🗑️
+    window.deleteAppointment = function(index) {
+        if(confirm("¿Seguro que deseas eliminar esta cita?")) {
+            let appointments = JSON.parse(localStorage.getItem('citas')) || [];
+            appointments.splice(index, 1);
+            localStorage.setItem('citas', JSON.stringify(appointments));
+            renderAppointments();
+        }
+    };
 });

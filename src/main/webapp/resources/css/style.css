@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2933;
+}
+
+header {
+    background: #0a2b4c;
+    color: #ffffff;
+    padding: 18px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header .container,
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+.hero {
+    background: #dfe7ef;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.form-section {
+    background: #ffffff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card,
+.login-card,
+.table,
+.form-box {
+    background: #ffffff;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-box {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-box label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #cbd2d9;
+    border-radius: 6px;
+}
+
+.btn,
+.link-button {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 18px;
+    background: #b68b2f;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.danger {
+    background: #b42318;
+}
+
+.message {
+    max-width: 650px;
+    margin: 0 auto 18px auto;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.error {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+}
+
+.login-card {
+    width: 90%;
+    max-width: 420px;
+    margin: 50px auto;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    border: 1px solid #d9e2ec;
+    text-align: left;
+}
+
+.table th {
+    background: #0a2b4c;
+    color: #ffffff;
+}
+
+footer {
+    background: #0a2b4c;
+    color: #ffffff;
+    text-align: center;
+    padding: 18px 0;
+}
+
+@media (max-width: 768px) {
+    header .container,
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+    }
+}

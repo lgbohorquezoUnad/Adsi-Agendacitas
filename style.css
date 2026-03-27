@@ -276,3 +276,147 @@ footer {
         font-size: 2rem;
     }
 }
+/* Estilos específicos para la página de login */
+.login-page {
+    background-color: #f4f4f4; /* Un gris muy claro o el color de tu fondo */
+    margin: 0;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    min-height: 100vh;       /* Usa todo el alto de la pantalla */
+}
+
+.login-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;      /* Bordes redondeados como en la imagen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
+    width: 100%;
+    max-width: 400px;        /* Evita que se estire demasiado */
+    text-align: center;
+}
+
+.login-card h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+.back-home {
+    margin-top: 20px; /* Crea espacio arriba del contenedor */
+}
+.table-wrapper {
+    margin: 20px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table tr:hover {
+    background-color: #f1f1f1; /* Efecto al pasar el mouse 🖱️ */
+}
+/* Contenedor del panel */
+.table-wrapper {
+    margin: 30px 0;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+
+/* Tabla Estilo Legal */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.admin-table thead tr {
+    background-color: #1a237e; /* Azul Oscuro Institucional */
+    color: #ffffff;
+    text-align: left;
+}
+
+.admin-table th {
+    padding: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #d4af37; /* Detalle en Dorado */
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.admin-table tr:hover {
+    background-color: #f8f9ff; /* Efecto sutil al pasar el mouse */
+}
+
+/* Botones de acción */
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c62828;
+    transform: translateY(-1px);
+}
+/* Estilo para la tabla de administración */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden; /* Para que las esquinas redondeadas funcionen */
+}
+
+.admin-table thead tr {
+    background-color: #0a2b4c; /* Azul corporativo */
+    color: white;
+    text-align: left;
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+    border-bottom: 3px solid #bca05f; /* Detalle Dorado */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.admin-table tr:hover {
+    background-color: #f9f9f9; /* Resaltado al pasar el mouse */
+}
