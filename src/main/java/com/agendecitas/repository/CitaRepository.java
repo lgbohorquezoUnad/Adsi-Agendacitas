@@ -21,8 +21,8 @@ public class CitaRepository {
         return new ArrayList<>(CITAS);
     }
 
-    public static synchronized void eliminar(int id) {
-        CITAS.removeIf(cita -> cita.getId() == id);
+    public static synchronized boolean eliminar(int id) {
+        return CITAS.removeIf(cita -> cita.getId() == id);
     }
 
     public static int siguienteId() {

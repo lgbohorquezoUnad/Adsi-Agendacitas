@@ -22,8 +22,12 @@ public class EliminarCitaServlet extends HttpServlet {
 
         String idTexto = request.getParameter("id");
         if (idTexto != null && !idTexto.isBlank()) {
-            int id = Integer.parseInt(idTexto);
-            CitaRepository.eliminar(id);
+            try {
+                int id = Integer.parseInt(idTexto);
+                CitaRepository.eliminar(id);
+            } catch (NumberFormatException ignored) {
+                session.setAttribute("mensajeError", "El identificador de la cita no es valido.");
+            }
         }
 
         response.sendRedirect(request.getContextPath() + "/dashboard");
